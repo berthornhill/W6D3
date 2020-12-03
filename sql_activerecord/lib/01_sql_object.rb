@@ -14,9 +14,18 @@ class SQLObject
       FROM #{self.table_name}
       LIMIT 1
     SQL
-  
+    
+    p sql_query
+    puts '---'
+
     hash = DBConnection.execute2(sql_query)
+
+    p hash
+    puts '---'
+
     @columns = hash.first.map(&:to_sym)
+
+    p @columns
 
   end
 
